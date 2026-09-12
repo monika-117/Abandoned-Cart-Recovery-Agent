@@ -228,17 +228,17 @@ The tool is connected to the webhook workflow, allowing the checkout request to 
 ### Workflow
 
 Customer wants to purchase  
-↓  
+          ↓  
 AI identifies purchase intent  
-↓  
+          ↓  
 Checkout Link Tool is triggered  
-↓  
+          ↓  
 Webhook receives the request  
-↓  
+          ↓  
 Checkout information is processed  
-↓  
+          ↓  
 Checkout link is provided  
-↓  
+          ↓  
 Customer completes the purchase
 
 ### Key Points
@@ -270,13 +270,13 @@ The AI can recognize this intent and trigger the rescheduling workflow.
 ### Workflow
 
 Customer requests a callback  
-↓  
+           ↓  
 AI identifies callback intent  
-↓  
+           ↓  
 Reschedule Call Tool is triggered  
-↓  
+           ↓  
 Callback information is processed  
-↓  
+           ↓  
 Customer can be contacted again later
 
 ### Key Points
@@ -392,22 +392,27 @@ The webhook receives the request and allows the external checkout process to be 
 This confirms that the AI agent is capable of communicating with an external service and triggering an action based on the customer's intent.
 
 
-## Beardo Checkout Link Test
-
-```markdown
-#  Beardo Webhook Execution Test
+##  Beardo Checkout Link Tool Execution
 
 <p align="center">
-  <img src="./02_Webhook_Checkout_Link_Tool_Execution_Proof_Beardo.png" width="900">
+  <img 
+    src="./02_Webhook_Checkout_Link_Tool_Execution_Proof_Beardo.png" 
+    width="900" 
+    alt="Beardo Checkout Link Tool Execution Proof"
+  >
 </p>
 
 ### Explanation
 
-This screenshot shows the checkout-link webhook execution for the Beardo use case.
+This screenshot shows the successful execution of the checkout-link tool for the Beardo use case.
 
-The purpose of this test was to verify that the same AI-agent architecture can work with brand-specific customer and cart information.
+The AI agent is configured to use customer-specific information dynamically, allowing the same abandoned-cart recovery workflow to be used for different brands.
 
-Instead of creating a completely separate agent for Beardo, the required information can be provided dynamically.
+When the customer indicates that they are ready to complete the purchase, the AI can trigger the checkout-link tool. The tool then sends the required request to the configured webhook endpoint.
+
+The webhook receives the request and processes the checkout-related information.
+
+
 
 
 
