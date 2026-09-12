@@ -227,19 +227,9 @@ The tool is connected to the webhook workflow, allowing the checkout request to 
 
 ### Workflow
 
-Customer wants to purchase  
-          ↓  
-AI identifies purchase intent  
-          ↓  
-Checkout Link Tool is triggered  
-          ↓  
-Webhook receives the request  
-          ↓  
-Checkout information is processed  
-          ↓  
-Checkout link is provided  
-          ↓  
-Customer completes the purchase
+<p align="center">
+  <img src="./workflow checkout link process.png" width="350">
+</p>
 
 ### Key Points
 
@@ -267,17 +257,10 @@ For example, a customer may say:
 
 The AI can recognize this intent and trigger the rescheduling workflow.
 
-### Workflow
+<p align="center">
+  <img src="./Callback Reschedule Workflow Infographic.png" width="350">
+</p>
 
-Customer requests a callback  
-           ↓  
-AI identifies callback intent  
-           ↓  
-Reschedule Call Tool is triggered  
-           ↓  
-Callback information is processed  
-           ↓  
-Customer can be contacted again later
 
 ### Key Points
 
