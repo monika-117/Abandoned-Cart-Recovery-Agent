@@ -1,0 +1,89 @@
+{
+  "tools": [
+    {
+      "name": "send_checkout_link",
+      "description": "Use only after the customer clearly agrees to buy. Ask no additional question when agreement is clear. Send the supplied checkout link on WhatsApp and tell the customer it is coming.",
+      "pre_call_message": {
+        "en": "One moment, I am sending the checkout link on WhatsApp.",
+        "hi": "एक मिनट रुकिए, मैं WhatsApp पर checkout link भेज देती हूँ।"
+      },
+      "parameters": {
+        "type": "object",
+        "required": ["customer_name", "checkout_link", "cart_details", "final_price_words"],
+        "properties": {
+          "customer_name": {
+            "type": "string",
+            "description": "The confirmed customer's name, copied from the conversation."
+          },
+          "checkout_link": {
+            "type": "string",
+            "description": "The checkout URL supplied in the call context."
+          },
+          "cart_details": {
+            "type": "string",
+            "description": "The product the customer agreed to purchase."
+          },
+          "final_price_words": {
+            "type": "string",
+            "description": "The pre-worded final price supplied in the call context. Do not calculate it."
+          }
+        }
+      },
+      "key": "custom_task",
+      "value": {
+        "method": "POST",
+        "param": {
+          "customer_name": "%(customer_name)s",
+          "checkout_link": "%(checkout_link)s",
+          "cart_details": "%(cart_details)s",
+          "final_price_words": "%(final_price_words)s"
+        },
+        "url": "https://webhook.site/REPLACE_WITH_CHECKOUT_WEBHOOK_UUID",
+        "api_token": null,
+        "headers": {},
+        "pre_call_webhook_url": null,
+        "pre_call_webhook_param": null
+      }
+    },
+    {
+      "name": "reschedule_call",
+      "description": "Use only when the customer asks to talk later or requests a callback. Ask for the preferred date and time first, then invoke this tool with both values.",
+      "pre_call_message": {
+        "en": "Sure, I will note that preferred callback time.",
+        "hi": "ज़रूर, मैं आपका preferred callback time note कर देती हूँ।"
+      },
+      "parameters": {
+        "type": "object",
+        "required": ["customer_name", "preferred_date", "preferred_time"],
+        "properties": {
+          "customer_name": {
+            "type": "string",
+            "description": "The confirmed customer's name, copied from the conversation."
+          },
+          "preferred_date": {
+            "type": "string",
+            "description": "The callback date stated by the customer."
+          },
+          "preferred_time": {
+            "type": "string",
+            "description": "The callback time stated by the customer."
+          }
+        }
+      },
+      "key": "custom_task",
+      "value": {
+        "method": "POST",
+        "param": {
+          "customer_name": "%(customer_name)s",
+          "preferred_date": "%(preferred_date)s",
+          "preferred_time": "%(preferred_time)s"
+        },
+        "url": "https://webhook.site/REPLACE_WITH_RESCHEDULE_WEBHOOK_UUID",
+        "api_token": null,
+        "headers": {},
+        "pre_call_webhook_url": null,
+        "pre_call_webhook_param": null
+      }
+    }
+  ]
+}
