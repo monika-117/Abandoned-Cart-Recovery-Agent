@@ -461,11 +461,9 @@ The configuration contains the following customer-specific information:
 ### Transcript
 <img width="887" height="559" alt="image" src="https://github.com/user-attachments/assets/f45ba0f2-48a5-41aa-a44c-451fac72e1f6" />
 
-## Call Recording
-
+###  Call Recording
 The AI voice agent was tested through a real phone conversation to verify the complete abandoned-cart recovery flow.
-
- **Listen to the Test Call:**
+You can listen to the complete test call recording here:
 
 [ **Listen to the  Call Recording**](https://drive.google.com/file/d/1Z-ncmbxOFGbrxt3PRLI2WXMrInp-GUXy/view?usp=drive_link)
 
