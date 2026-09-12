@@ -385,7 +385,140 @@ When the customer indicates that they are ready to complete the purchase, the AI
 
 The webhook receives the request and processes the checkout-related information.
 
+##  Example Configuration and Test Call
+<img width="1029" height="354" alt="image" src="https://github.com/user-attachments/assets/99bf78f6-0061-405c-a697-e84eadef6eeb" />
 
 
+This  shows the configuration of one of the test scenarios and the successful execution of the voice agent.
+
+The `config-a.json` file contains the information required to trigger an abandoned-cart recovery call. Instead of hardcoding these values inside the AI prompt, the information is passed to the agent through the `user_data` object.
+
+The configuration includes:
+
+- `agent_id` – Identifies the configured Bolna voice agent.
+- `recipient_phone_number` – Specifies the customer phone number used for the test call.
+- `assistantName` – Name used by the AI assistant during the conversation.
+- `shopName` – The e-commerce brand associated with the abandoned cart.
+- `customerName` – Name of the customer receiving the call.
+- `cartDetails` – Product that was left in the customer's cart.
+- `cartPriceWords` – Original cart price provided in words for natural voice output.
+- `discountInstruction` – Instructions given to the AI regarding the available discount.
+- `finalPriceWords` – Pre-calculated final price provided in words.
+- `checkoutLink` – Checkout URL associated with the customer's cart.
+
+### Dynamic `user_data`
+
+The important part of this configuration is the `user_data` object:
+
+```json
+{
+  "assistantName": "Neha",
+  "shopName": "Beardo",
+  "customerName": "Rohan",
+  "cartDetails": "Full Body Trimmer",
+  "cartPriceWords": "two thousand nine hundred ninety nine rupees",
+  "discountInstruction": "A ten percent discount is available with code SAVE10.",
+  "finalPriceWords": "two thousand six hundred ninety nine rupees",
+  "checkoutLink": "https://example.com/checkout/beardo-rohan"
+}
+```
+### Transcript
+
+<img width="887" height="559" alt="image" src="https://github.com/user-attachments/assets/066e6280-ec21-4176-87b7-72c32d89964f" />
+
+###  Call Recording
+
+You can listen to the complete test call recording here:
+
+[Listen to the Call Recording](https://drive.google.com/file/d/1pD5cxFIn_MPtDEiJYRMsJJHPCW5dcBoN/view?usp=sharing)
+
+###  Second Brand Configuration — GIVA
+
+<img width="1044" height="376" alt="image" src="https://github.com/user-attachments/assets/67c2fe96-5f0d-463d-8fdc-02357e944b7d" />
 
 
+This shows the second test configuration of the reusable Abandoned Cart Recovery Voice Agent using the **GIVA** brand.
+
+The important part of this test is that the same AI agent is reused with a completely different brand, customer, product, pricing, and checkout information. Only the values inside the `user_data` object are changed.
+
+### GIVA `user_data` Configuration
+
+The configuration contains the following customer-specific information:
+
+```json
+{
+  "assistantName": "Kiara",
+  "shopName": "GIVA",
+  "customerName": "Sailaja",
+  "cartDetails": "Silver Butterfly Pendant",
+  "cartPriceWords": "one thousand four hundred ninety rupees",
+  "discountInstruction": "No discount is available for this cart.",
+  "finalPriceWords": "one thousand four hundred ninety rupees",
+  "checkoutLink": "https://example.com/checkout/giva-sailaja"
+}
+```
+
+### Transcript
+<img width="887" height="559" alt="image" src="https://github.com/user-attachments/assets/f45ba0f2-48a5-41aa-a44c-451fac72e1f6" />
+
+## Call Recording
+
+The AI voice agent was tested through a real phone conversation to verify the complete abandoned-cart recovery flow.
+
+ **Listen to the Test Call:**
+
+[ **Listen to the  Call Recording**](https://drive.google.com/file/d/1Z-ncmbxOFGbrxt3PRLI2WXMrInp-GUXy/view?usp=drive_link)
+
+### Test Includes
+
+-  Real phone call
+-  AI voice interaction
+-  Customer conversation
+-  Abandoned-cart recovery
+-  English/Hinglish conversation
+- AI tool/action handling
+
+#  Technical Outcome
+
+The **Abandoned Cart Recovery Agent** demonstrates the implementation of a **production-oriented conversational AI workflow** for e-commerce automation.
+
+The system combines **LLM-based reasoning, real-time voice interaction, dynamic context injection, tool calling, webhook orchestration, and automated call workflows** into a single reusable architecture.
+
+### Core Technical Capabilities
+
+- **Conversational AI** using Azure GPT-4.1-mini
+- **Real-time Voice AI** using ElevenLabs
+- **Speech-to-Text (STT)** using Deepgram Nova-3
+- **Dynamic Context Injection** through per-call `user_data`
+- **Prompt Engineering** for controlled conversational behaviour
+- **Intent Recognition** for purchase and callback scenarios
+- **Function / Tool Calling** for external actions
+- **Webhook-based API Integration**
+- **Automated Checkout Workflow**
+- **Callback / Rescheduling Workflow**
+- **Multilingual English–Hinglish Conversation Handling**
+- **Deterministic Price Handling** using pre-worded values
+- **Real-time Call Execution and Testing**
+- **Reusable Multi-Brand Agent Architecture**
+
+---
+
+#  Key Takeaway
+
+> **Build AI that doesn't just talk — build AI that understands, decides, and takes action.**
+
+This project demonstrates that approach by connecting a conversational voice agent with real-world actions such as **checkout-link generation and callback scheduling**.
+
+---
+
+#  Repository
+
+**GitHub Repository:**  
+[Abandoned Cart Recovery Agent](https://github.com/monika-117/Abandoned-Cart-Recovery-Agent)
+
+
+<p align="center">
+
+### If you found this project interesting, consider giving the repository a star!
+
+</p>
