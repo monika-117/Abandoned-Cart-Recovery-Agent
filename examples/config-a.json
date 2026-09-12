@@ -1,0 +1,14 @@
+{
+  "agent_id": "a89e6454-c156-4013-a330-73534fa175e7",
+  "recipient_phone_number": "+918548936581",
+  "user_data": {
+    "assistantName": "Neha",
+    "shopName": "Beardo",
+    "customerName": "Rohan",
+    "cartDetails": "Full Body Trimmer",
+    "cartPriceWords": "two thousand nine hundred ninety nine rupees",
+    "discountInstruction": "A ten percent discount is available with code SAVE10.",
+    "finalPriceWords": "two thousand six hundred ninety nine rupees",
+    "checkoutLink": "https://example.com/checkout/beardo-rohan"
+  }
+}
