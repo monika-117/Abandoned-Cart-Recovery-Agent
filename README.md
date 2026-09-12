@@ -23,33 +23,19 @@ The agent can:
 -  Schedule callbacks
 -  Communicate with external systems using webhooks
 
-The system is built using **Bolna AI** and uses dynamic customer information so that the same agent can be reused for different customers and brands.
+- The system is built using **Bolna AI** and uses dynamic customer information so that the same agent can be reused for different customers and brands.I built a single reusable voice agent for abandoned-cart recovery across
+different Shopify brands using per-call user_data variables.The prompt uses variables for the customer name, assistant name, shop name, cart details, price, discount, and pre-worded final price, allowing the same agent to
+handle different brands and carts without changing the prompt.
 
----
+- The same agent was tested with two different brand and cart configurations by changing only the user_data values.I designed the conversation as a short, natural Hinglish flow covering identity confirmation, a one-time opening
+  pitch, reason probing, objection handling, discount nudging when applicable, and checkout or call-rescheduling actions. The agent responds in English when the customer speaks English and uses natural Hinglish with Devanagari
+  Hindi and common English commerce terms when the customer speaks Hinglish. I also instructed it to keep responses to a maximum of two sentences, ask only one question at a time, avoid digits in spoken output, and consistently
+  use feminine verb endings.
+  
+- For the LLM, I used Azure GPT-4.1-mini cluster because it provides fast responses suitable for real-time phone conversations while being capable of following the structured conversation and tool-calling instructions. For voice
+  generation, I used ElevenLabs with the Eleven Turbo v2.5 model and the Riya Rao — Famous and Professional voice, selected for clear and natural Indian-English/Hinglish speech with good response speed. For transcription, I used
+  Deepgram Nova-3 for accurate speech-to-text during calls.
 
-#  Problem Statement
-
-Cart abandonment is a common problem in e-commerce.
-
-A customer may add a product to their cart but leave without completing the purchase because of:
-
-- High price
-- Shipping cost
-- Lack of time
-- Product uncertainty
-- Payment issues
-- Comparing other products
-- Wanting a discount
-- Simply forgetting to complete the purchase
-
-Traditional cart-recovery systems generally use:
-
-- Emails
-- SMS
-- Push notifications
-- Generic promotional messages
-
-These methods are not conversational and cannot understand the actual reason behind the customer's decision.
 
 ### Objective
 
@@ -231,6 +217,8 @@ The tool is connected to the webhook workflow, allowing the checkout request to 
   <img src="./workflow checkout link process.png" width="350">
 </p>
 
+Send Checkout Link: Triggered only when the customer clearly agrees to complete the purchase. The agent then invokes the tool and tells the customer that the checkout link is being sent on WhatsApp.
+
 ### Key Points
 
 - Created a custom checkout tool.
@@ -260,6 +248,8 @@ The AI can recognize this intent and trigger the rescheduling workflow.
 <p align="center">
   <img src="./Callback Reschedule Workflow Infographic.png" width="350">
 </p>
+
+Triggered when the customer asks to reschedule the call. The agent first asks for the customer's preferred date and time, then invokes the tool with those details.
 
 
 ### Key Points
